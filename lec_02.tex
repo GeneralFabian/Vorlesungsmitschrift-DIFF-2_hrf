@@ -1,6 +1,7 @@
 % !TEX root = ./Vorlesungsmitschrift DIFF 2.tex  
-\lecture{Do 23.04. 10:15}{}
-Bevor wir uns mit offenen und abgeschlossenen Mengen und sogenannten vollständigen metrischen Räumen näher befassen, beweisen wir noch zwei nützliche Lemmata zu Konvergenz und Stetigkeit:
+\lecture{Do 23.04. 10:15}{} Bevor wir uns mit offenen und abgeschlossenen Mengen und
+sogenannten vollständigen metrischen Räumen näher befassen, beweisen wir noch zwei
+nützliche Lemmata zu Konvergenz und Stetigkeit:
 
 \begin{lemma}\label{konvergenz_abstand_ist_nullfolge}
     \( (X,d) \) sei metrischer Raum.
@@ -41,11 +42,11 @@ Bevor wir uns mit offenen und abgeschlossenen Mengen und sogenannten vollständi
         \item[\hin] Sei das \( \varepsilon \)-\( \delta \)-Kriterium erfüllt (\ref{stetigkeit_in_metrischen_raeumen}).
         Sei \( (x_n)_n \) Folge in \( X \) mit \( x_n\goesto a \) in \( X \). Sei \( \varepsilon>0 \). Dann \texists \( \delta>0 \) \sd
         \begin{align*}
-            d_Y(f(x),f(a))<\varepsilon\logicspace\forall x\in B_\delta(a)\subset X.
+            d_Y(f(x),f(a))<\varepsilon\logicspace\forall x\in \ball{\delta}{a}\subset X.
         \end{align*} 
         Wegen der Konvergenz \texists \( N=N(\delta) \) \sd
         \begin{align*}
-            &x_n\in B_\delta(a) \logicspace\forall n\geq N\\
+            &x_n\in \ball{\delta}{a} \logicspace\forall n\geq N\\
             \implies &f(x_n)\in B_\varepsilon(f(a))\subset Y \logicspace \forall n\geq N.
         \end{align*}
         Also gilt \( f(x_n)\goesto f(a) \).
@@ -53,7 +54,7 @@ Bevor wir uns mit offenen und abgeschlossenen Mengen und sogenannten vollständi
         
         Angenommen, das \( \varepsilon \)-\( \delta \)-Kriterium wäre verletzt. Dann gäbe es \( \varepsilon>0 \) \sd für \emph{alle} \( \delta>0 \) ein \( x\in X \) existierte \sd
         \begin{align*}
-            x\in B_\delta(a)\logicspace \begin{aligned}[t] 
+            x\in \ball{\delta}{a}\logicspace \begin{aligned}[t] 
                 &\text{aber} \logicspace f(x)\notin B_\varepsilon(f(a))\\
                 &\text{also} \logicspace d_y(f(x), f(a)) \geq \varepsilon.
             \end{aligned}
@@ -84,15 +85,15 @@ Bevor wir uns mit offenen und abgeschlossenen Mengen und sogenannten vollständi
          \contra zu \( a_n\in A \).
          
          \item[\rueck] Wir zeigen, dass \( X\setminus A \) offen ist.
-         Sei also \( b\in X \setminus A \). Es gibt \( \varepsilon>0 \) \sd \( B_\varepsilon(b)\cap A=\emptyset \), also \( B_\varepsilon(b)\subset X\setminus A \). 
+         Sei also \( b\in X \setminus A \). Es gibt \( \varepsilon>0 \) \sd \( \ball{\varepsilon}{b}\cap A=\emptyset \), also \( \ball{\varepsilon}{b}\subset X\setminus A \). 
          
          Denn angenommen es gibt kein solches \( \varepsilon \). 
          Dann gilt für \emph{alle} \( \varepsilon>0 \):
-         \( B_\varepsilon(b)\cap A\neq \emptyset \), also kann man zu jedem \( k\geq 1 \) ein \( x_k\in A \) finden mit \( \distance{x_k}{ b}<\frac{1}{k}=\varepsilon \).
+         \( \ball{\varepsilon}{b}\cap A\neq \emptyset \), also kann man zu jedem \( k\geq 1 \) ein \( x_k\in A \) finden mit \( \distance{x_k}{ b}<\frac{1}{k}=\varepsilon \).
          \begin{align*}
              \implies x_k=b\underset{\text{\textsc{Vor}}}{\implies} b\in A.
          \end{align*}
-         \contra Wiederspruch zu \( b\in X\setminus A \).
+         \contra Widerspruch zu \( b\in X\setminus A \).
 
          Also gibt es ein solches \( \varepsilon>0 \), also ist \( X\setminus A \) offen.
     \end{proofenumerate}
@@ -102,36 +103,35 @@ Bevor wir uns mit offenen und abgeschlossenen Mengen und sogenannten vollständi
     Sei \( (X,d) \) metrischer Raum, \( M\subset X \). Ein Punkt \( y\in X \) heißt \emph{Randpunkt} von \( M \), falls in jeder Umgebung von \( y \) sowohl Punkte von \( M \) als auch \( X\setminus M \) liegen.
 \end{definition}
 \begin{notation*}
-    \( \randpunkte M=\Set{\text{Randpunkte von \( M \)}} \)
+    \( \randpunkte{M}=\Set{\text{Randpunkte von \( M \)}} \)
 \end{notation*}
 \begin{beispiel*}[\( \reals^n \), \( d_{\text{Eukl.}} \)]
    Kugel im \( \reals^m \):
    \begin{align*}
        K^n&\definedas \Set{x\in \reals^n| \norm{x-0}_\text{E}\leq R}\subset \reals^n\\
        \intertext{Sphäre:}
-       \randpunkte K^n &=\Set{x\in \reals^n|\norm{x}_\text{E}= R}=S^{n-1}
+       \randpunkte{K^n} &=\Set{x\in \reals^n|\norm{x}_\text{E}= R}=S^{n-1}
    \end{align*} 
 \end{beispiel*}
 
 \begin{beispiel*}
-    \( \rationals\subset \reals \). \( \randpunkte \rationals =\reals\).
+    \( \rationals\subset \reals \). \( \randpunkte{\rationals} =\reals\).
 \end{beispiel*}
 \begin{satz}
     Sei \( (X,d) \) metrischer Raum. Sei \( M\subset X \). Dann gilt
     \begin{enumerate}
-        \item \label{interior_ist_offen}\( M\setminus \randpunkte M \) ist offen.
-        \item \label{abschluss_ist_geschlossen}\( M\cup \randpunkte M \) ist abgeschlossen.
-        \item \label{rand_ist_geschlossen}\( \randpunkte M \) ist abgeschlossen.
+        \item \label{interior_ist_offen}\( M\setminus \randpunkte{M} \) ist offen.
+        \item \label{abschluss_ist_geschlossen}\( M\cup \randpunkte{M} \) ist abgeschlossen.
+        \item \label{rand_ist_geschlossen}\( \randpunkte{M} \) ist abgeschlossen.
     \end{enumerate}
 \end{satz}
 \begin{proof}
     \begin{proofdescription}
+        \item[\ref{interior_ist_offen}:] \( a\in M\setminus \randpunkte{M} \) \timplies \texists \( \varepsilon>0 \) \sd \( \ball{\varepsilon}{a}\cap X\setminus M = \emptyset \). Für dieses gilt auch \( \ball;{\varepsilon}\cap \randpunkte{M}=\emptyset\) (denn angenommen \texists \( y\in \ball{\varepsilon}{a} \cap \randpunkte{M} \),  dann wäre (da \( y\in \randpunkte{M} \) und \( \ball{\varepsilon}{a} \) eine Umgebung von \( y \)) \( \ball{\varepsilon}{a}\cap (X\setminus M)\neq \emptyset \) \contra \textsc{VOR}).
         
-        \item[\ref{interior_ist_offen}:] \( a\in M\setminus \randpunkte M \) \timplies \texists \( \varepsilon>0 \) \sd \( B_\varepsilon(a)\cap X\setminus M = \emptyset \). Für dieses gilt auch \( B_\varepsilon\cap \randpunkte M=\emptyset\) (denn angenommen \texists \( y\in B_\varepsilon(a)\cap \randpunkte M \),  dann wäre (da \( y\in \randpunkte M \) und \( B_\varepsilon(a) \) eine Umgebung von \( y \)) \( B_\varepsilon(a)\cap (X\setminus M)\neq \emptyset \) \contra \textsc{VOR}).
-        
-        Also gilt \( B_\varepsilon(a)\subset M\setminus \randpunkte M \) \timplies \Beh.
-        \item[\ref{abschluss_ist_geschlossen}:] Es gilt \( \randpunkte M=\randpunkte (X\setminus M) \) (nach Definition), \( (X\setminus M)\setminus \randpunkte(X\setminus M) \) ist offen nach \ref{interior_ist_offen} \timplies \begin{align*}
-            X\setminus ((X\setminus M)\setminus \randpunkte(X\setminus M))\explain{\text{Manipulation mit Mengen}}{=}(X\setminus(X\setminus M))\cup \randpunkte (X\setminus M)=M\cup \randpunkte M
+        Also gilt \( \ball{\varepsilon}{a}\subset M\setminus \randpunkte{M} \) \timplies \Beh.
+        \item[\ref{abschluss_ist_geschlossen}:] Es gilt \( \randpunkte{M}=\randpunkte{X\setminus M} \) (nach Definition), \( (X\setminus M)\setminus \randpunkte{X\setminus M} \) ist offen nach \ref{interior_ist_offen} \timplies \begin{align*}
+            X\setminus ((X\setminus M)\setminus \randpunkte{X\setminus M})\explain{\text{Manipulation mit Mengen}}{=}(X\setminus(X\setminus M))\cup \randpunkte{X\setminus M}=M\cup \randpunkte{M}
         \end{align*}
         ist offen.
         \begin{figure}[H]
@@ -141,8 +141,8 @@ Bevor wir uns mit offenen und abgeschlossenen Mengen und sogenannten vollständi
         \end{figure}
         \item[\ref{rand_ist_geschlossen}:]
         \begin{align*}
-            &\randpunkte M=(M\cup \randpunkte M)\setminus (M\setminus \randpunkte M)\\
-            \implies &X\setminus \randpunkte M=\underbrace{X\setminus(\underbrace{M\cup \randpunkte M}_{\text{(abgeschl.\ nach \ref{abschluss_ist_geschlossen})}})}_{\text{offen}}\cup (\underbrace{M\setminus \randpunkte M}_{\text{offen nach \ref{interior_ist_offen}}}).
+            &\randpunkte{M}=(M\cup \randpunkte{M})\setminus (M\setminus \randpunkte{M})\\
+            \implies &X\setminus \randpunkte{M}=\underbrace{X\setminus(\underbrace{M\cup \randpunkte{M}}_{\text{(abgeschl.\ nach \ref{abschluss_ist_geschlossen})}})}_{\text{offen}}\cup (\underbrace{M\setminus \randpunkte{M}}_{\text{offen nach \ref{interior_ist_offen}}}).
         \end{align*} 
     \end{proofdescription}
 \end{proof}
@@ -150,8 +150,8 @@ Bevor wir uns mit offenen und abgeschlossenen Mengen und sogenannten vollständi
 \begin{notation*}
     Sei \( M\subset X \).
     \begin{align*}
-        \inneres{M}&\definedas M\setminus \randpunkte M\text{ heißt das \emph{Innere} von \( M \).}\\
-        \abschluss{M}&\definedas M\cup \randpunkte M\text{ heißt der \emph{Abschluss} von \( M \).}
+        \inneres{M}&\definedas M\setminus \randpunkte{M}\text{ heißt das \emph{Innere} von \( M \).}\\
+        \abschluss{M}&\definedas M\cup \randpunkte{M}\text{ heißt der \emph{Abschluss} von \( M \).}
     \end{align*}
 \end{notation*}
 Nach \ref{abgeschlossenheit:folgenkonvergenzkriterium} können wir \( \abschluss{M} \) konstruieren, indem wir zu \( M \) noch alle Grenzwerte von Folgen \( (x_n)_n \), \( x_n\in M \), die in in \( X \) konvergieren, hinzunehmen.
@@ -160,8 +160,8 @@ Nach \ref{abgeschlossenheit:folgenkonvergenzkriterium} können wir \( \abschluss
 \end{beispiel*}
 \begin{bemerkung*}[als Hausaufgabe]
     \begin{align*}
-        M&\subset X \text{ offen} \iff M\cap \randpunkte M=\emptyset.\\
-        M&\subset X \text{ abgeschlossen} \iff \randpunkte M \subset M.
+        M&\subset X \text{ offen} \iff M\cap \randpunkte{M}=\emptyset.\\
+        M&\subset X \text{ abgeschlossen} \iff \randpunkte{M} \subset M.
     \end{align*}
     
 \end{bemerkung*}
@@ -169,7 +169,7 @@ Nach \ref{abgeschlossenheit:folgenkonvergenzkriterium} können wir \( \abschluss
 \begin{definition}\index{Cauchy-Folge}
     Sei \( (X,d) \) ein metrischer Raum. Eine Folge \( (y_n)_n \subset X\) heißt \emph{Cauchy-Folge}, falls gilt
     \begin{align*}
-        \forall \varepsilon>0 \logicspace \exists N\in \naturals \logicspace\text{\sd} \distance{y_n}{ y_m}<\varepsilon \logicspace \forall n,m\geq N.
+        \forall \varepsilon>0 \logicspace \exists N\in \naturals \logicspace\text{\sd}\logicspace \distance{y_n}{ y_m}<\varepsilon \logicspace \forall n,m\geq N.
     \end{align*} 
 \end{definition}
 \begin{lemma}
@@ -237,7 +237,7 @@ Zunächst einige
     \( M \) heißt \emph{beschränkt}, falls \( \diameter{M}<\infty \).
 \end{definition}
 \begin{bemerkung*}
-    \( M\) ist beschränkt \tiff \texists \( R\geq 0\)  und \( a\in X\) \sd \( M\subset B_R(a)\) 
+    \( M\) ist beschränkt \tiff \texists \( R\geq 0\)  und \( a\in X\) \sd \( M\subset \ball{R}{a}\) 
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.5\linewidth]{figures/beschraenkte_menge_in_ball}
@@ -276,9 +276,9 @@ Zunächst einige
 \end{proof}
 Ein sehr wichtiger Satz, der viele Anwendungen hat ist der folgende:
 \begin{satz}[Banach'scher Fixpunktsatz]\index{Banach'scher Fixpunktsatz}
-    Sei \( (X,d_X)\) ein \emph{vollständiger} metrischer Raum. Sei \( M\subset X\) eine \emph{abgeschlossene} Teilmenge und \( \Phi\maps M\to X\) eine Abbildung mit \( \Phi(M\subset M)\) und es gebe \( 0\leq L<1\) \sd
+    Sei \( (X,d_X)\) ein \emph{vollständiger} metrischer Raum. Sei \( M\subset X\) eine \emph{abgeschlossene} Teilmenge und \( \Phi\maps M\to X\) eine Abbildung mit \( \Phi(M)\subset M\) und es gebe \( 0\leq L<1\) \sd
     \begin{align*}
-        d_X(\Phi(X),\Phi(Y))\leq L d_X(x,y)\forall x,y\in M\logicspace (\text{\enquote{\( \Phi\) ist Kontraktion}}).
+        d_X(\Phi(x),\Phi(y))\leq L d_X(x,y)\logicspace\forall x,y\in M\logicspace (\text{\enquote{\( \Phi\) ist Kontraktion}}).
     \end{align*}
     Dann gibt es genau ein \( t_*\) \sd \( \Phi(t_*)=t_*\). Ein solches \( t_*\) heißt \emph{Fixpunkt} von \( \Phi\). 
 \end{satz}
@@ -299,7 +299,7 @@ Ein sehr wichtiger Satz, der viele Anwendungen hat ist der folgende:
                 &\leq \distance{t_*}{\tilde{t_*} }
             \end{aligned}
         \end{align*} 
-        Da \( L>1\) ist, folgt \( \distance{t_*}{\tilde{t_*}=0 }\), also \( t_*=\tilde{t_*} \).
+        Da \( L<1\) ist, folgt \( \distance{t_*}{\tilde{t_*}=0 }\), also \( t_*=\tilde{t_*} \).
         \item[Existenz:] Wir betrachten die Folge \( x_0\in M\) beliebig, \( x_n\definedas \Phi(x_{n-1})\) für \( n\geq 1\).
         \begin{behauptung*}
             \( (x_n)_n\) konvergiert in \( M\)  und zwar gegen de Fixpunkt.

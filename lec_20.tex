@@ -111,7 +111,7 @@ Ein Maß heißt \emph{vollständig}, wenn gilt: Ist \( N\in \Sigma \) mit \( \mu
   \begin{equation*}
     \Integrate{f}{x}\leq \liminf \Integrate{f_n}{x}.
   \end{equation*}
-  \( \liminf= \) limes inferior \( = \) der kleinste Häufungspunkt einer Folge.
+  \( \liminf= \) limes inferior \teq der kleinste Häufungspunkt einer Folge.
 \end{satz}
 \begin{proof}
   Setze \( g_m\definedas \inf\set{f_k|k\geq m} \). Dann gilt \( g_m\goesupto f \) und (wegen \( \liminf \int f_k<\infty \)) \( \sup \Integrate{g_m}{x}<\infty \). Also folgt \( f\in \lebesgueintegrablefunctions \), wenn gezeigt ist, dass \( g_m\in \lebesgueintegrablefunctions \) (aus \ref{beppo-levi-einfach}). Setze zu \( m\in \naturals \), \( l=m,m+1,\dotsc \) 
@@ -235,7 +235,7 @@ Ein nützliches Kriterium, um zu testen, ob \(f\in \lebesgueintegrablefunctions\
     \timplies  auch die Reihe, die \(f\) definiert, konvergiert punktweise \fue\\
     \timplies \(f\in \lebesgueintegrablefunctions\).
     
-    Wir zeigen: \(f_k\to f\) (\bzgl \(\lebesguenorm{}\)).
+    Wir zeigen: \(f_k\to f\) (\bzgl \(\lebesguenorm{\cdot}\)).
     Es gilt (Teleskopsummen-Argument) \(S_{K-1}(x)=f_{k_x}\).\\
     \timplies \(f_{k_K}\to f\) punktweise \fue \((K\to\infty\)).
 

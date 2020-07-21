@@ -55,7 +55,7 @@
 \end{bemerkungen*}
 \begin{beispiele*}
     \begin{enumerate}
-        \item \( f\maps \reals^n\to \reals^n \), \( f(x)=A\matrixmult x+b \), \( A\in \Mat(m\times n, \reals) \), \( b\in \reals^m \).
+        \item \( f\maps \reals^n\to \reals^m \), \( f(x)=A\matrixmult x+b \), \( A\in \Mat(m\times n, \reals) \), \( b\in \reals^m \).
         \begin{align*}
             f(a+h)=f(a)+A\matrixmult h\implies \totalderivative{f}(a)=A.
         \end{align*}
@@ -68,7 +68,7 @@
             &\explain{\text{CHECK!}}{=}\scalarproduct{a}{B\matrixmult a}+\scalarproduct{(B+B^T)\matrixmult a}{h}+\scalarproduct{h}{Bh}. 
         \end{aligned}                
     \end{align*}
-    Wegen (wähle \( \norm{\cdot}=\norm{\cdot}_{\text{E}} \))
+    Wegen (wähle \( \norm{\cdot}=\euclidiannorm{\cdot} \))
     \begin{align*}
         \frac{\scalarproduct{a}{Bh}}{\norm{h}}\underset{\text{C-S}}{\leq}\frac{\norm{h}\cdot\norm{Bh}}{\norm{h}}\leq \norm{B}_{\text{op}}\cdot\norm{h}\goesto 0  \text{ für }h\goesto 0
     \end{align*}
@@ -149,8 +149,8 @@ Aus der Definition folgt sofort
         \end{align*}
         \item[\ref{quotientenregel}] \( g \) ist in \( a \) stetig \timplies \texists Umgebung von \( a \) \sd \( g(x)\neq 0 \) \tforall \( x\in U \) (wie in der \diffcourse{1}: Sei \obda \( g(a)>0 \). Sei \( \varepsilon\definedas \quot{g(a)}{2} \). Sei \( \norm{\cdot} \) irgendeine Norm auf \( \reals^n \). Dann gibt es ein \( \delta>0 \) \sd
         \begin{align*}
-            &\abs{g(x)-g(a)}<\varepsilon\quad \forall x\in B_{\delta}^{\norm{\cdot}}(a)\\
-            \implies &-\frac{g(a)}{2}<g(x)-g(a)<\frac{g(a)}{2}\quad \forall x\in B_{\delta}^{\norm{\cdot}}(a),
+            &\abs{g(x)-g(a)}<\varepsilon\quad \forall x\in \ball;{\delta}^{\norm{\cdot}}(a)\\
+            \implies &-\frac{g(a)}{2}<g(x)-g(a)<\frac{g(a)}{2}\quad \forall x\in \ball;{\delta}^{\norm{\cdot}}(a),
         \end{align*}
         also \( 0<\frac{g(a)}{2}<g(x)<\frac{3}{2}\frac{g(a)}{2} \).) \timplies Auf \( U \) ist \( \quot{f}{g} \) wohldefiniert. Die Berechnung der Ableitung ist analog zu \ref{produktregel}, nachdem man sich überlegt hat, dass
         \begin{align*}
